@@ -1,0 +1,42 @@
+[versions]
+androidGradlePlugin = "7.3.1"
+androidxLifecycle = "2.6.0-alpha03"
+androidxComposeCompiler = "1.3.2"
+hilt = "2.44.2"
+kotlin = "1.7.20"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.9.0" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.6.1" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version = "2022.12.00" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version = "1.1.0-alpha03" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-ui-testManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version = "2.5.3" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.0.0" }
+androidx-test-ext = { group = "androidx.test.ext", name = "junit-ktx", version = "1.1.5" }
+androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version = "3.5.1" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+junit4 = { group = "junit", name = "junit", version = "4.13.2" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version = "31.1.1" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore-ktx" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
+play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version = "20.4.0" }
+# dependencies of gradle convention plugins
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
+[plugins]
+google-services = { id = "com.google.gms.google-services", version = "4.3.14" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

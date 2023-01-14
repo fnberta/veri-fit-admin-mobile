@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "955308028827",
+    "firebase_url": "https://veri-fit.firebaseio.com",
+    "project_id": "veri-fit",
+    "storage_bucket": "veri-fit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955308028827:android:35f30fbc1cb37f177d673e",
+        "android_client_info": {
+          "package_name": "ch.berta.fabio.verifitadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955308028827-jmpmji84itipqchuivk7af8irgtc2hu5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ch.berta.fabio.verifitadmin",
+            "certificate_hash": "2a9700d6f0ce4da0272628760292f4bdeac8968a"
+          }
+        },
+        {
+          "client_id": "955308028827-sequkajgsca3e4hv3rndpqsme40rpa3h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVRw3qlxzZ5V4epIwyqgZrFfPRek6gV7Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955308028827-sequkajgsca3e4hv3rndpqsme40rpa3h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
