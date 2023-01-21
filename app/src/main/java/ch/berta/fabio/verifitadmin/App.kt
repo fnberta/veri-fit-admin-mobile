@@ -6,9 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -33,6 +31,7 @@ import ch.berta.fabio.verifitadmin.feature.trainings.TRAININGS_ROUTE
 import ch.berta.fabio.verifitadmin.feature.trainings.navigateToTrainings
 import ch.berta.fabio.verifitadmin.feature.trainings.trainings
 import ch.berta.fabio.verifitadmin.ui.theme.Theme
+import kotlinx.coroutines.flow.filter
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLifecycleComposeApi::class)
 @Composable
@@ -120,10 +119,12 @@ private fun AppNavHost(
         clients()
     }
 
-    if (isLoggedOut) {
-        LaunchedEffect(Unit) {
-            navController.navigateToLogin()
-        }
+    LaunchedEffect(navController) {
+        navController.currentBackStackEntryFlow
+            .filter { isLoggedOut && it.destination.route != LOGIN_ROUTE }
+            .collect {
+                navController.navigateToLogin()
+            }
     }
 }
 
