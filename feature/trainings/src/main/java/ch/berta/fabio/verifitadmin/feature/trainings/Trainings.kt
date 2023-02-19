@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -22,7 +21,6 @@ internal fun Trainings(uiState: TrainingsUiState) {
 
 const val TRAININGS_ROUTE = "trainings"
 
-@OptIn(ExperimentalLifecycleComposeApi::class)
 fun NavGraphBuilder.trainings() {
     composable(TRAININGS_ROUTE) {
         val viewModel = hiltViewModel<TrainingsViewModel>()
