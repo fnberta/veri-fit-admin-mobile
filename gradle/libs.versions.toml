@@ -6,7 +6,6 @@ hilt = "2.45"
 kotlin = "1.8.10"
 
 [libraries]
-# dependencies of gradle convention plugins
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
 androidx-activity-compose = "androidx.activity:activity-compose:1.6.1"
 androidx-compose-bom = "androidx.compose:compose-bom:2023.01.00"
