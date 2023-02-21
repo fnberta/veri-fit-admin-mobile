@@ -18,11 +18,14 @@ versionCatalogUpdate {
     }
 }
 
-tasks.named("dependencyUpdates", DependencyUpdatesTask::class).configure {
-    val immaturityLevels = listOf("rc", "cr", "m", "beta", "alpha", "preview")
-    val immaturityRegexes = immaturityLevels.map { ".*[.\\-]$it[.\\-\\d]*".toRegex(RegexOption.IGNORE_CASE) }
+tasks {
+    dependencyUpdates {
+        val immaturityLevels = listOf("rc", "cr", "m", "beta", "alpha", "preview")
+            .map { ".*[.\\-]$it[.\\-\\d]*".toRegex(RegexOption.IGNORE_CASE) }
 
-    fun immaturityLevel(version: String): Int = immaturityRegexes.indexOfLast { version.matches(it) }
+        fun getImmaturityLevel(version: String): Int =
+            immaturityLevels.indexOfLast { version.matches(it) }
 
-    rejectVersionIf { immaturityLevel(candidate.version) > immaturityLevel(currentVersion) }
+        rejectVersionIf { getImmaturityLevel(candidate.version) > getImmaturityLevel(currentVersion) }
+    }
 }
