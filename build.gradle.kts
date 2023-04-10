@@ -1,5 +1,3 @@
-import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-
 plugins {
     alias(libs.plugins.google.services) apply false
     alias(libs.plugins.kotlin.jvm) apply false
