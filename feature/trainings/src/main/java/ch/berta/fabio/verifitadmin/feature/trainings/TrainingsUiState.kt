@@ -5,5 +5,4 @@ import ch.berta.fabio.verifitadmin.data.trainings.Training
 internal sealed class TrainingsUiState {
     object Loading : TrainingsUiState()
     data class Content(val trainings: List<Training>) : TrainingsUiState()
-    object Error : TrainingsUiState()
 }

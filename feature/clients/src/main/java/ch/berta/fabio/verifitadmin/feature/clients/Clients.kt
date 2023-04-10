@@ -16,7 +16,6 @@ import androidx.navigation.compose.composable
 internal fun Clients(uiState: ClientsUiState) {
     when (uiState) {
         ClientsUiState.Loading -> Text("Loading...")
-        ClientsUiState.Error -> Text("Oops...")
         is ClientsUiState.Content -> {
             LazyColumn {
                 items(items = uiState.clients, key = { it.id.toString() }) {

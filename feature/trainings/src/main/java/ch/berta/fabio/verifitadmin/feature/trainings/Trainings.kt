@@ -14,7 +14,6 @@ import androidx.navigation.compose.composable
 internal fun Trainings(uiState: TrainingsUiState) {
     when (uiState) {
         TrainingsUiState.Loading -> Text("Loading...")
-        TrainingsUiState.Error -> Text("Oops...")
         is TrainingsUiState.Content -> Text("Hello Trainings")
     }
 }

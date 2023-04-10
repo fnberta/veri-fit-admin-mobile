@@ -13,7 +13,6 @@ internal class ClientsViewModel @Inject constructor(
 ) : ViewModel() {
     val uiState: StateFlow<ClientsUiState> = clientRepository.getClients()
         .map<_, ClientsUiState> { ClientsUiState.Content(it) }
-        .catch { emit(ClientsUiState.Error) }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
