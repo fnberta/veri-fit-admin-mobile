@@ -116,7 +116,7 @@ private fun AppNavHost(
         clients()
     }
 
-    LaunchedEffect(navController) {
+    LaunchedEffect(navController, isLoggedOut) {
         navController.currentBackStackEntryFlow
             .filter { isLoggedOut && it.destination.route != LOGIN_ROUTE }
             .collect {
