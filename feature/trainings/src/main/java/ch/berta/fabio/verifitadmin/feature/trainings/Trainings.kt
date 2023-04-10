@@ -4,6 +4,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
@@ -34,6 +36,15 @@ fun NavController.navigateToTrainings() {
 
 @Preview
 @Composable
-private fun TrainingsPreview() {
-    Trainings(TrainingsUiState.Content(trainings = emptyList()))
+private fun TrainingsPreview(
+    @PreviewParameter(TrainingsUiStatePreviewProvider::class) uiState: TrainingsUiState,
+) {
+    Trainings(uiState)
+}
+
+private class TrainingsUiStatePreviewProvider : PreviewParameterProvider<TrainingsUiState> {
+    override val values = sequenceOf(
+        TrainingsUiState.Loading,
+        TrainingsUiState.Content(trainings = emptyList()),
+    )
 }

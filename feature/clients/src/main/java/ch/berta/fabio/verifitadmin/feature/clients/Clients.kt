@@ -6,6 +6,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
@@ -42,6 +44,15 @@ fun NavController.navigateToClients() {
 
 @Preview
 @Composable
-private fun ClientsPreview() {
-    Clients(ClientsUiState.Loading)
+private fun ClientsPreview(
+    @PreviewParameter(ClientsUiStateProvider::class) uiState: ClientsUiState,
+) {
+    Clients(uiState)
+}
+
+private class ClientsUiStateProvider : PreviewParameterProvider<ClientsUiState> {
+    override val values = sequenceOf(
+        ClientsUiState.Loading,
+        ClientsUiState.Content(clients = emptyList()),
+    )
 }
