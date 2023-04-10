@@ -1,7 +1,7 @@
 package ch.berta.fabio.verifitadmin.data.trainings.di
 
-import ch.berta.fabio.verifitadmin.data.trainings.SimpleTrainingsRepository
-import ch.berta.fabio.verifitadmin.data.trainings.TrainingsRepository
+import ch.berta.fabio.verifitadmin.data.trainings.SimpleTrainingRepository
+import ch.berta.fabio.verifitadmin.data.trainings.TrainingRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,5 +14,5 @@ internal interface TrainingsModule {
     
     @Singleton
     @Binds
-    fun bindsTrainingsRepository(repository: SimpleTrainingsRepository): TrainingsRepository
+    fun bindsTrainingRepository(repository: SimpleTrainingRepository): TrainingRepository
 }
