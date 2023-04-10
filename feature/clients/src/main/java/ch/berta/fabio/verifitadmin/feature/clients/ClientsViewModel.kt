@@ -18,5 +18,9 @@ internal class ClientsViewModel @Inject constructor(getClients: GetClients) : Vi
     val uiState: StateFlow<ClientsUiState> = getClients()
         .map<_, ClientsUiState> { ClientsUiState.Content(it) }
         .catch { emit(ClientsUiState.Error) }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), ClientsUiState.Loading)
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = ClientsUiState.Loading
+        )
 }

@@ -21,5 +21,9 @@ internal class TrainingsViewModel @Inject constructor(getTrainings: GetTrainings
     val uiState = getTrainings()
         .map<_, TrainingsUiState> { TrainingsUiState.Content(it) }
         .catch { emit(TrainingsUiState.Error) }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), TrainingsUiState.Loading)
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = TrainingsUiState.Loading
+        )
 }

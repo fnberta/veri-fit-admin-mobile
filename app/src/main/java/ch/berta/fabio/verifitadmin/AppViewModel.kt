@@ -15,9 +15,9 @@ class AppViewModel @Inject constructor(authService: AuthService) : ViewModel() {
     val uiState = authService.getAuthState()
         .map { AppUiState(it) }
         .stateIn(
-            viewModelScope,
-            SharingStarted.WhileSubscribed(5_000),
-            AppUiState(AuthState.LoggedOut)
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5_000),
+            initialValue = AppUiState(AuthState.LoggedOut)
         )
 }
 
