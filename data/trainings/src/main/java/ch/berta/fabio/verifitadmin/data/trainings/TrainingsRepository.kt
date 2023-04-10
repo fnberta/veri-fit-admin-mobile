@@ -10,10 +10,8 @@ interface TrainingsRepository {
 }
 
 internal class SimpleTrainingsRepository @Inject constructor() : TrainingsRepository {
-    override fun getTrainings(): Flow<List<Training>> {
-        return flow {
-            delay(1000)
-            emit(emptyList())
-        }
+    override fun getTrainings(): Flow<List<Training>> = flow {
+        delay(1000)
+        emit(emptyList())
     }
 }
