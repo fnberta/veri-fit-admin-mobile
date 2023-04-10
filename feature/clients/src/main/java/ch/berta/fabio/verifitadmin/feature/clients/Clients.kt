@@ -19,8 +19,8 @@ internal fun Clients(uiState: ClientsUiState) {
         ClientsUiState.Error -> Text("Oops...")
         is ClientsUiState.Content -> {
             LazyColumn {
-                items(items = uiState.clients, key = { it.id.toString() }) { client ->
-                    Text(client.name.toString())
+                items(items = uiState.clients, key = { it.id.toString() }) {
+                    Text(it.name.toString())
                 }
             }
         }
