@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -30,7 +29,6 @@ internal fun Clients(uiState: ClientsUiState) {
 
 const val CLIENTS_ROUTE = "clients"
 
-@OptIn(ExperimentalLifecycleComposeApi::class)
 fun NavGraphBuilder.clients() {
     composable(CLIENTS_ROUTE) {
         val clientsViewModel = hiltViewModel<ClientsViewModel>()
