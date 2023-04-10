@@ -95,9 +95,8 @@ private fun BottomNavigationBar(navController: NavHostController, modifier: Modi
     }
 }
 
-private fun NavDestination?.isRouteInHierarchy(route: String): Boolean {
-    return this?.hierarchy?.any { it.route == route } ?: false
-}
+private fun NavDestination?.isRouteInHierarchy(route: String): Boolean =
+    this?.hierarchy?.any { it.route == route } ?: false
 
 @Composable
 private fun AppNavHost(
