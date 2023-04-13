@@ -7,9 +7,7 @@ plugins {
 android {
     namespace = "ch.berta.fabio.verifitadmin.feature.sessions"
 
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+    kotlinOptions { jvmTarget = "1.8" }
 }
 
 dependencies {

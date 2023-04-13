@@ -35,10 +35,7 @@ import kotlinx.coroutines.flow.filter
 @Composable
 fun App() {
     Theme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
-        ) {
+        Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             val navController = rememberNavController()
             Scaffold(
                 topBar = { AppBar() },
@@ -60,19 +57,14 @@ fun App() {
 @OptIn(ExperimentalMaterial3Api::class)
 private fun AppBar(modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            titleContentColor = MaterialTheme.colorScheme.onPrimary,
-            navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
-            actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
-        ),
-        title = {
-            Text(
-                text = "veri-fit Admin",
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-        },
+        colors =
+            TopAppBarDefaults.centerAlignedTopAppBarColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+                titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
+            ),
+        title = { Text(text = "veri-fit Admin", maxLines = 1, overflow = TextOverflow.Ellipsis) },
         modifier = modifier,
     )
 }
@@ -86,12 +78,14 @@ private fun BottomNavigationBar(navController: NavHostController, modifier: Modi
             icon = { Icon(Icons.Filled.DateRange, contentDescription = null) },
             label = { Text(stringResource(R.string.trainings)) },
             selected = currentDestination.isRouteInHierarchy(TRAININGS_ROUTE),
-            onClick = { navController.navigateToTrainings() })
+            onClick = { navController.navigateToTrainings() }
+        )
         NavigationBarItem(
             icon = { Icon(Icons.Filled.AccountCircle, contentDescription = null) },
             label = { Text(stringResource(R.string.clients)) },
             selected = currentDestination.isRouteInHierarchy(CLIENTS_ROUTE),
-            onClick = { navController.navigateToClients() })
+            onClick = { navController.navigateToClients() }
+        )
     }
 }
 
@@ -119,9 +113,7 @@ private fun AppNavHost(
     LaunchedEffect(navController, isLoggedOut) {
         navController.currentBackStackEntryFlow
             .filter { isLoggedOut && it.destination.route != LOGIN_ROUTE }
-            .collect {
-                navController.navigateToLogin()
-            }
+            .collect { navController.navigateToLogin() }
     }
 }
 

@@ -13,9 +13,7 @@ import androidx.navigation.compose.composable
 
 @Composable
 internal fun Login(onSignInClick: () -> Unit) {
-    Button(onClick = onSignInClick) {
-        Text("Sign-In")
-    }
+    Button(onClick = onSignInClick) { Text("Sign-In") }
 }
 
 const val LOGIN_ROUTE = "login"
@@ -23,9 +21,12 @@ const val LOGIN_ROUTE = "login"
 fun NavGraphBuilder.login() {
     composable(LOGIN_ROUTE) {
         val viewModel = hiltViewModel<LoginViewModel>()
-        val activityLauncher = rememberLauncherForActivityResult(
-            ActivityResultContracts.StartIntentSenderForResult()
-        ) { result -> viewModel.onSignInResult(result.data) }
+        val activityLauncher =
+            rememberLauncherForActivityResult(
+                ActivityResultContracts.StartIntentSenderForResult()
+            ) { result ->
+                viewModel.onSignInResult(result.data)
+            }
         Login(onSignInClick = { viewModel.onSignInClick(activityLauncher::launch) })
     }
 }
@@ -37,5 +38,5 @@ fun NavController.navigateToLogin() {
 @Preview
 @Composable
 private fun LoginPreview() {
-    Login(onSignInClick = { /* noop */ })
+    Login(onSignInClick = { /* noop */})
 }

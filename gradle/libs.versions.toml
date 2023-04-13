@@ -4,6 +4,7 @@ androidxComposeCompiler = "1.4.4"
 androidxLifecycle = "2.6.1"
 hilt = "2.45"
 kotlin = "1.8.10"
+spotless = "6.18.0"
 
 [libraries]
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
@@ -30,6 +31,7 @@ hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.re
 junit4 = "junit:junit:4.13.2"
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 play-services-auth = "com.google.android.gms:play-services-auth:20.5.0"
+spotless-gradlePlugin = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotless"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -41,3 +43,4 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 updates = "com.github.ben-manes.versions:0.46.0"
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }

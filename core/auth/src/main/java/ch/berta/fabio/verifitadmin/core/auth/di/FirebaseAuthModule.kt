@@ -12,6 +12,5 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 internal object FirebaseAuthModule {
 
-    @Provides
-    fun providesFirebaseAuth(): FirebaseAuth = Firebase.auth
+    @Provides fun providesFirebaseAuth(): FirebaseAuth = Firebase.auth
 }

@@ -6,11 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import ch.berta.fabio.verifitadmin.core.auth.AuthService
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 @HiltViewModel
-internal class LoginViewModel @Inject constructor(private val authService: AuthService) : ViewModel() {
+internal class LoginViewModel @Inject constructor(private val authService: AuthService) :
+    ViewModel() {
 
     fun onSignInClick(launchSignIn: (request: IntentSenderRequest) -> Unit) {
         viewModelScope.launch {
@@ -21,8 +22,6 @@ internal class LoginViewModel @Inject constructor(private val authService: AuthS
     }
 
     fun onSignInResult(data: Intent?) {
-        viewModelScope.launch {
-            authService.processSignInData(data)
-        }
+        viewModelScope.launch { authService.processSignInData(data) }
     }
 }

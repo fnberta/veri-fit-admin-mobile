@@ -1,9 +1,9 @@
 package ch.berta.fabio.verifitadmin.data.trainings
 
+import javax.inject.Inject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import javax.inject.Inject
 
 interface TrainingRepository {
     fun getTrainings(): Flow<List<Training>>

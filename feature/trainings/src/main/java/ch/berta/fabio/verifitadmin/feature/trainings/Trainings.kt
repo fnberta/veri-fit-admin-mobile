@@ -43,8 +43,9 @@ private fun TrainingsPreview(
 }
 
 private class TrainingsUiStatePreviewProvider : PreviewParameterProvider<TrainingsUiState> {
-    override val values = sequenceOf(
-        TrainingsUiState.Loading,
-        TrainingsUiState.Content(trainings = emptyList()),
-    )
+    override val values =
+        sequenceOf(
+            TrainingsUiState.Loading,
+            TrainingsUiState.Content(trainings = emptyList()),
+        )
 }

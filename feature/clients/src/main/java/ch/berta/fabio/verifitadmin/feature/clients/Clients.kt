@@ -51,8 +51,9 @@ private fun ClientsPreview(
 }
 
 private class ClientsUiStateProvider : PreviewParameterProvider<ClientsUiState> {
-    override val values = sequenceOf(
-        ClientsUiState.Loading,
-        ClientsUiState.Content(clients = emptyList()),
-    )
+    override val values =
+        sequenceOf(
+            ClientsUiState.Loading,
+            ClientsUiState.Content(clients = emptyList()),
+        )
 }

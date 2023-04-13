@@ -11,7 +11,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 internal interface TrainingsModule {
-    
+
     @Singleton
     @Binds
     fun bindsTrainingRepository(repository: SimpleTrainingRepository): TrainingRepository
