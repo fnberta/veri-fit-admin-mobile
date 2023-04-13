@@ -30,6 +30,8 @@ android {
     packagingOptions { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
 }
 
+tasks.named("build") { dependsOn(project(":").tasks.named("installPreCommitHook")) }
+
 dependencies {
     implementation(project(":feature:login"))
     implementation(project(":feature:trainings"))

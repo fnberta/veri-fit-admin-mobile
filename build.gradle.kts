@@ -27,4 +27,9 @@ tasks {
 
         rejectVersionIf { getImmaturityLevel(candidate.version) > getImmaturityLevel(currentVersion) }
     }
+
+    register<Copy>("installPreCommitHook") {
+        from(fileTree("./scripts").include("pre-commit"))
+        into(".git/hooks")
+    }
 }
