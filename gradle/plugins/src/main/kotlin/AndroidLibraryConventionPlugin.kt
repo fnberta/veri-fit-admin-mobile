@@ -14,6 +14,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.android")
                 apply("com.android.library")
                 apply("com.diffplug.spotless")
+                apply("io.gitlab.arturbosch.detekt")
             }
 
             extensions.configure<LibraryExtension> {

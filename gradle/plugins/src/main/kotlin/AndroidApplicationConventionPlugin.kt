@@ -14,6 +14,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.android")
                 apply("com.android.application")
                 apply("com.diffplug.spotless")
+                apply("io.gitlab.arturbosch.detekt")
             }
 
             extensions.configure<ApplicationExtension> {
