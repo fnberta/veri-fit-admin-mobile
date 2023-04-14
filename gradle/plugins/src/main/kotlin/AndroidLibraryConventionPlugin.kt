@@ -1,3 +1,4 @@
+import ch.berta.fabio.verifitadmin.configureDetekt
 import ch.berta.fabio.verifitadmin.configureKotlinAndroid
 import ch.berta.fabio.verifitadmin.configureSpotless
 import com.android.build.api.dsl.LibraryExtension
@@ -14,6 +15,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.android")
                 apply("com.android.library")
                 apply("com.diffplug.spotless")
+                apply("io.gitlab.arturbosch.detekt")
             }
 
             extensions.configure<LibraryExtension> {
@@ -22,6 +24,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 defaultConfig.consumerProguardFiles("consumer-rules.pro")
             }
             configureSpotless(extensions.getByType())
+            configureDetekt(extensions.getByType())
         }
     }
 }
