@@ -1,4 +1,5 @@
 import ch.berta.fabio.verifitadmin.configureDetekt
+import ch.berta.fabio.verifitadmin.configureKotlin
 import ch.berta.fabio.verifitadmin.configureKotlinAndroid
 import ch.berta.fabio.verifitadmin.configureSpotless
 import com.android.build.api.dsl.LibraryExtension
@@ -20,9 +21,9 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
-                defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 defaultConfig.consumerProguardFiles("consumer-rules.pro")
             }
+            configureKotlin(extensions.getByType())
             configureSpotless(extensions.getByType())
             configureDetekt(extensions.getByType())
         }

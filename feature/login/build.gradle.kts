@@ -4,11 +4,7 @@ plugins {
     id("verifitadmin.android.hilt")
 }
 
-android {
-    namespace = "ch.berta.fabio.verifitadmin.feature.login"
-
-    kotlinOptions { jvmTarget = "1.8" }
-}
+android { namespace = "ch.berta.fabio.verifitadmin.feature.login" }
 
 dependencies {
     implementation(project(":core:auth"))

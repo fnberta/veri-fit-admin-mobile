@@ -4,11 +4,7 @@ plugins {
     id("verifitadmin.android.hilt")
 }
 
-android {
-    namespace = "ch.berta.fabio.verifitadmin.feature.sessions"
-
-    kotlinOptions { jvmTarget = "1.8" }
-}
+android { namespace = "ch.berta.fabio.verifitadmin.feature.sessions" }
 
 dependencies {
     implementation(project(":data:clients"))

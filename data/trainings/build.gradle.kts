@@ -3,11 +3,7 @@ plugins {
     id("verifitadmin.android.hilt")
 }
 
-android {
-    namespace = "ch.berta.fabio.verifitadmin.data.trainings"
-
-    kotlinOptions { jvmTarget = "1.8" }
-}
+android { namespace = "ch.berta.fabio.verifitadmin.data.trainings" }
 
 dependencies {
     implementation(libs.androidx.core.ktx)
