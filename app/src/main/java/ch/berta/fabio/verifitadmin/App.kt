@@ -5,8 +5,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -96,7 +107,7 @@ private fun NavDestination?.isRouteInHierarchy(route: String): Boolean =
 private fun AppNavHost(
     navController: NavHostController,
     authState: AuthState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val isLoggedOut = authState is AuthState.LoggedOut
     val startDestination = if (isLoggedOut) LOGIN_ROUTE else TRAININGS_ROUTE

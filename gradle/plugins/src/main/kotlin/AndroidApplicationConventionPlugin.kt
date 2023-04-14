@@ -1,4 +1,5 @@
 import ch.berta.fabio.verifitadmin.configureKotlinAndroid
+import ch.berta.fabio.verifitadmin.configureDetekt
 import ch.berta.fabio.verifitadmin.configureSpotless
 import com.android.build.api.dsl.ApplicationExtension
 import org.gradle.api.Plugin
@@ -22,6 +23,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 defaultConfig.targetSdk = 33
             }
             configureSpotless(extensions.getByType())
+            configureDetekt(extensions.getByType())
         }
     }
 }

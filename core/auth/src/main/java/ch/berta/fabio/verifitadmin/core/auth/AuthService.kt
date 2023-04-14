@@ -45,7 +45,8 @@ constructor(private val auth: FirebaseAuth, private val oneTapClient: SignInClie
 
     suspend fun processSignInData(data: Intent?) {
         val credentials = oneTapClient.getSignInCredentialFromIntent(data)
-        val idToken = credentials.googleIdToken ?: throw Exception("no valid idToken received")
+        val idToken = credentials.googleIdToken
+        checkNotNull(idToken)
         val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(firebaseCredential).await()
     }
