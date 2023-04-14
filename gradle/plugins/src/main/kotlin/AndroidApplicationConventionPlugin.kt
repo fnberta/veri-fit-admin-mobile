@@ -7,6 +7,8 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getByType
 
+private const val TARGET_SDK = 33
+
 class AndroidApplicationConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
@@ -20,7 +22,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
             extensions.configure<ApplicationExtension> {
                 configureKotlinAndroid(this)
-                defaultConfig.targetSdk = 33
+                defaultConfig.targetSdk = TARGET_SDK
             }
             configureSpotless(extensions.getByType())
             configureDetekt(extensions.getByType())
