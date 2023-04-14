@@ -27,6 +27,7 @@ androidx-test-ext = "androidx.test.ext:junit-ktx:1.1.5"
 firebase-auth = { module = "com.google.firebase:firebase-auth-ktx" }
 firebase-bom = "com.google.firebase:firebase-bom:31.4.0"
 firebase-firestore = { module = "com.google.firebase:firebase-firestore-ktx" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 junit4 = "junit:junit:4.13.2"
@@ -47,3 +48,4 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 updates = "com.github.ben-manes.versions:0.46.0"
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+firebase-crashlytics = "com.google.firebase.crashlytics:2.9.5"

@@ -3,6 +3,7 @@ plugins {
     id("verifitadmin.android.application.compose")
     id("verifitadmin.android.hilt")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {

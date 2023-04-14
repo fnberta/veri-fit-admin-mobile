@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.spotless) apply false
     alias(libs.plugins.detekt) apply false
+    alias(libs.plugins.firebase.crashlytics) apply false
     alias(libs.plugins.updates)
     alias(libs.plugins.catalog.update)
 }
