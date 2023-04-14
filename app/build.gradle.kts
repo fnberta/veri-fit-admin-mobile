@@ -27,7 +27,7 @@ android {
         }
     }
     kotlinOptions { jvmTarget = "1.8" }
-    packagingOptions { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
+    packaging { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
 }
 
 tasks.named("build") { dependsOn(project(":").tasks.named("installPreCommitHook")) }
