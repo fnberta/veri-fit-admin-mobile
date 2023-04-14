@@ -38,5 +38,5 @@ fun NavController.navigateToLogin() {
 @Preview
 @Composable
 private fun LoginPreview() {
-    Login(onSignInClick = { /* noop */})
+    Login(onSignInClick = {})
 }
