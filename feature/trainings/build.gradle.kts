@@ -8,6 +8,7 @@ android { namespace = "ch.berta.fabio.verifitadmin.feature.trainings" }
 
 dependencies {
     implementation(project(":data:trainings"))
+    implementation(project(":core:theme"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime)

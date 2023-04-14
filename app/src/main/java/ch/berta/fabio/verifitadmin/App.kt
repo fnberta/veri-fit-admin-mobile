@@ -30,6 +30,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import ch.berta.fabio.core.theme.Theme
 import ch.berta.fabio.verifitadmin.core.auth.AuthState
 import ch.berta.fabio.verifitadmin.feature.clients.CLIENTS_ROUTE
 import ch.berta.fabio.verifitadmin.feature.clients.clients
@@ -40,7 +41,6 @@ import ch.berta.fabio.verifitadmin.feature.login.navigateToLogin
 import ch.berta.fabio.verifitadmin.feature.trainings.TRAININGS_ROUTE
 import ch.berta.fabio.verifitadmin.feature.trainings.navigateToTrainings
 import ch.berta.fabio.verifitadmin.feature.trainings.trainings
-import ch.berta.fabio.verifitadmin.ui.theme.Theme
 import kotlinx.coroutines.flow.filter
 
 @Composable
@@ -131,5 +131,5 @@ private fun AppNavHost(
 @Preview(showBackground = true)
 @Composable
 private fun AppPreview() {
-    App()
+    Theme { App() }
 }

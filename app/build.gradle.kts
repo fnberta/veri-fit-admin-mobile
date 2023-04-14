@@ -35,6 +35,7 @@ dependencies {
     implementation(project(":feature:login"))
     implementation(project(":feature:trainings"))
     implementation(project(":feature:clients"))
+    implementation(project(":core:theme"))
     implementation(project(":core:auth"))
 
     implementation(libs.androidx.core.ktx)

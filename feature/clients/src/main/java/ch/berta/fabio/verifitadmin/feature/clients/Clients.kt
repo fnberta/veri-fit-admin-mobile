@@ -13,6 +13,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import ch.berta.fabio.core.theme.Theme
 
 @Composable
 internal fun Clients(uiState: ClientsUiState) {
@@ -42,12 +43,12 @@ fun NavController.navigateToClients() {
     navigate(CLIENTS_ROUTE)
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun ClientsPreview(
     @PreviewParameter(ClientsUiStateProvider::class) uiState: ClientsUiState,
 ) {
-    Clients(uiState)
+    Theme { Clients(uiState) }
 }
 
 private class ClientsUiStateProvider : PreviewParameterProvider<ClientsUiState> {

@@ -8,6 +8,7 @@ android { namespace = "ch.berta.fabio.verifitadmin.feature.sessions" }
 
 dependencies {
     implementation(project(":data:clients"))
+    implementation(project(":core:theme"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime)

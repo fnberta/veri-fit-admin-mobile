@@ -11,6 +11,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import ch.berta.fabio.core.theme.Theme
 
 @Composable
 internal fun Trainings(uiState: TrainingsUiState) {
@@ -34,12 +35,12 @@ fun NavController.navigateToTrainings() {
     navigate(TRAININGS_ROUTE)
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun TrainingsPreview(
     @PreviewParameter(TrainingsUiStatePreviewProvider::class) uiState: TrainingsUiState,
 ) {
-    Trainings(uiState)
+    Theme { Trainings(uiState) }
 }
 
 private class TrainingsUiStatePreviewProvider : PreviewParameterProvider<TrainingsUiState> {

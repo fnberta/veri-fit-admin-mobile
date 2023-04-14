@@ -10,6 +10,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import ch.berta.fabio.core.theme.Theme
 
 @Composable
 internal fun Login(onSignInClick: () -> Unit) {
@@ -35,8 +36,8 @@ fun NavController.navigateToLogin() {
     navigate(LOGIN_ROUTE)
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun LoginPreview() {
-    Login(onSignInClick = {})
+    Theme { Login(onSignInClick = {}) }
 }

@@ -1,4 +1,4 @@
-package ch.berta.fabio.verifitadmin.ui.theme
+package ch.berta.fabio.core.theme
 
 import android.app.Activity
 import android.os.Build
