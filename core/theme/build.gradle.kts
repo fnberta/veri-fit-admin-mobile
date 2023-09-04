@@ -1,6 +1,8 @@
+// TODO: Remove once KTIJ-19369 is fixed
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("verifitadmin.android.library")
-    id("verifitadmin.android.library.compose")
+    id("verifitadmin.android-library-compose")
+    alias(libs.plugins.kotlinBuild.android.library)
 }
 
 android { namespace = "ch.berta.fabio.core.theme" }

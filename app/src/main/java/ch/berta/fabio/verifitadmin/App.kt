@@ -31,7 +31,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import ch.berta.fabio.core.theme.Theme
-import ch.berta.fabio.verifitadmin.core.auth.AuthState
+import ch.berta.fabio.verifitadmin.component.auth.AuthState
 import ch.berta.fabio.verifitadmin.feature.clients.CLIENTS_ROUTE
 import ch.berta.fabio.verifitadmin.feature.clients.clients
 import ch.berta.fabio.verifitadmin.feature.clients.navigateToClients

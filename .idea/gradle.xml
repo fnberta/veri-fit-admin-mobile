@@ -10,6 +10,7 @@
               <build path="$PROJECT_DIR$/gradle/plugins" name="plugins">
                 <projects>
                   <project path="$PROJECT_DIR$/gradle/plugins" />
+                  <project path="$PROJECT_DIR$/gradle/plugins/convention" />
                 </projects>
               </build>
             </builds>
@@ -18,22 +19,24 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="Embedded JDK" />
+        <option name="gradleJvm" value="jbr-17" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/component" />
+            <option value="$PROJECT_DIR$/component/auth" />
+            <option value="$PROJECT_DIR$/component/clients" />
+            <option value="$PROJECT_DIR$/component/trainings" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/core/auth" />
+            <option value="$PROJECT_DIR$/core/database" />
             <option value="$PROJECT_DIR$/core/theme" />
-            <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/data/clients" />
-            <option value="$PROJECT_DIR$/data/trainings" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/clients" />
             <option value="$PROJECT_DIR$/feature/login" />
             <option value="$PROJECT_DIR$/feature/trainings" />
             <option value="$PROJECT_DIR$/gradle/plugins" />
+            <option value="$PROJECT_DIR$/gradle/plugins/convention" />
           </set>
         </option>
       </GradleProjectSettings>

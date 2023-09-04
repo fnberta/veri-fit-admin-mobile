@@ -2,8 +2,8 @@ package ch.berta.fabio.verifitadmin
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ch.berta.fabio.verifitadmin.core.auth.AuthService
-import ch.berta.fabio.verifitadmin.core.auth.AuthState
+import ch.berta.fabio.verifitadmin.component.auth.AuthState
+import ch.berta.fabio.verifitadmin.component.auth.ObserveAuthState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
@@ -11,10 +11,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
 @HiltViewModel
-class AppViewModel @Inject constructor(authService: AuthService) : ViewModel() {
+class AppViewModel @Inject constructor(observeAuthState: ObserveAuthState) : ViewModel() {
     val uiState =
-        authService
-            .getAuthState()
+        observeAuthState()
             .map { AppUiState(it) }
             .stateIn(
                 scope = viewModelScope,

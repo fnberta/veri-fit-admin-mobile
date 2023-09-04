@@ -1,9 +1,11 @@
+// TODO: Remove once KTIJ-19369 is fixed
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("verifitadmin.android.application")
-    id("verifitadmin.android.application.compose")
-    id("verifitadmin.android.hilt")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
+    id("verifitadmin.android-application-compose")
+    id("verifitadmin.android-application-hilt")
+    alias(libs.plugins.kotlinBuild.android.application)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.crashlytics)
 }
 
 android {
@@ -13,20 +15,7 @@ android {
         applicationId = "ch.berta.fabio.verifitadmin"
         versionCode = 1
         versionName = "1.0"
-
-        vectorDrawables { useSupportLibrary = true }
     }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
-            )
-        }
-    }
-    packaging { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
 }
 
 tasks.named("build") { dependsOn(project(":").tasks.named("installPreCommitHook")) }
@@ -36,8 +25,7 @@ dependencies {
     implementation(project(":feature:trainings"))
     implementation(project(":feature:clients"))
     implementation(project(":core:theme"))
-    implementation(project(":core:auth"))
-
+    implementation(project(":component:auth"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.androidx.lifecycle.runtimeCompose)

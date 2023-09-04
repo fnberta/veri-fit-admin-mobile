@@ -4,24 +4,25 @@ import android.content.Intent
 import androidx.activity.result.IntentSenderRequest
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ch.berta.fabio.verifitadmin.core.auth.AuthService
+import ch.berta.fabio.verifitadmin.component.auth.LaunchSignIn
+import ch.berta.fabio.verifitadmin.component.auth.ProcessSignIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.launch
 
 @HiltViewModel
-internal class LoginViewModel @Inject constructor(private val authService: AuthService) :
-    ViewModel() {
+internal class LoginViewModel
+@Inject
+constructor(
+    private val launchSignIn: LaunchSignIn,
+    private val processSignIn: ProcessSignIn,
+) : ViewModel() {
 
-    fun onSignInClick(launchSignIn: (request: IntentSenderRequest) -> Unit) {
-        viewModelScope.launch {
-            val intent = authService.getSignInIntent()
-            val request = IntentSenderRequest.Builder(intent).build()
-            launchSignIn(request)
-        }
+    fun onSignInClick(launch: (request: IntentSenderRequest) -> Unit) {
+        viewModelScope.launch { launchSignIn(launch) }
     }
 
     fun onSignInResult(data: Intent?) {
-        viewModelScope.launch { authService.processSignInData(data) }
+        viewModelScope.launch { processSignIn(data) }
     }
 }
