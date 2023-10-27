@@ -1,5 +1,3 @@
-// TODO: Remove once KTIJ-19369 is fixed
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("verifitadmin.android-library-hilt")
     id("verifitadmin.android-library-compose")
