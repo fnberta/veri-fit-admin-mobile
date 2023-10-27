@@ -32,21 +32,23 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import ch.berta.fabio.core.theme.Theme
 import ch.berta.fabio.verifitadmin.component.auth.AuthState
-import ch.berta.fabio.verifitadmin.feature.clients.CLIENTS_ROUTE
+import ch.berta.fabio.verifitadmin.feature.clients.ClientsRoute
 import ch.berta.fabio.verifitadmin.feature.clients.clients
 import ch.berta.fabio.verifitadmin.feature.clients.navigateToClients
-import ch.berta.fabio.verifitadmin.feature.login.LOGIN_ROUTE
+import ch.berta.fabio.verifitadmin.feature.login.LoginRoute
 import ch.berta.fabio.verifitadmin.feature.login.login
 import ch.berta.fabio.verifitadmin.feature.login.navigateToLogin
-import ch.berta.fabio.verifitadmin.feature.trainings.TRAININGS_ROUTE
+import ch.berta.fabio.verifitadmin.feature.trainings.TrainingsRoute
 import ch.berta.fabio.verifitadmin.feature.trainings.navigateToTrainings
 import ch.berta.fabio.verifitadmin.feature.trainings.trainings
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @Composable
 fun App() {
     Theme {
-        Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+        Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()) {
             val navController = rememberNavController()
             Scaffold(
                 topBar = { AppBar() },
@@ -88,13 +90,13 @@ private fun BottomNavigationBar(navController: NavHostController, modifier: Modi
         NavigationBarItem(
             icon = { Icon(Icons.Filled.DateRange, contentDescription = null) },
             label = { Text(stringResource(R.string.trainings)) },
-            selected = currentDestination.isRouteInHierarchy(TRAININGS_ROUTE),
+            selected = currentDestination.isRouteInHierarchy(TrainingsRoute),
             onClick = { navController.navigateToTrainings() }
         )
         NavigationBarItem(
             icon = { Icon(Icons.Filled.AccountCircle, contentDescription = null) },
             label = { Text(stringResource(R.string.clients)) },
-            selected = currentDestination.isRouteInHierarchy(CLIENTS_ROUTE),
+            selected = currentDestination.isRouteInHierarchy(ClientsRoute),
             onClick = { navController.navigateToClients() }
         )
     }
@@ -110,7 +112,7 @@ private fun AppNavHost(
     modifier: Modifier = Modifier,
 ) {
     val isLoggedOut = authState is AuthState.LoggedOut
-    val startDestination = if (isLoggedOut) LOGIN_ROUTE else TRAININGS_ROUTE
+    val startDestination = if (isLoggedOut) LoginRoute else TrainingsRoute
     NavHost(
         navController = navController,
         startDestination = startDestination,
@@ -123,8 +125,9 @@ private fun AppNavHost(
 
     LaunchedEffect(navController, isLoggedOut) {
         navController.currentBackStackEntryFlow
-            .filter { isLoggedOut && it.destination.route != LOGIN_ROUTE }
-            .collect { navController.navigateToLogin() }
+            .filter { isLoggedOut && it.destination.route != LoginRoute }
+            .onEach { navController.navigateToLogin() }
+            .launchIn(this)
     }
 }
 

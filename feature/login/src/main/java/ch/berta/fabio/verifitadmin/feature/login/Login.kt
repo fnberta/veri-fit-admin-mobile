@@ -17,10 +17,10 @@ internal fun Login(onSignInClick: () -> Unit) {
     Button(onClick = onSignInClick) { Text("Sign-In") }
 }
 
-const val LOGIN_ROUTE = "login"
+const val LoginRoute = "login"
 
 fun NavGraphBuilder.login() {
-    composable(LOGIN_ROUTE) {
+    composable(LoginRoute) {
         val viewModel = hiltViewModel<LoginViewModel>()
         val activityLauncher =
             rememberLauncherForActivityResult(
@@ -33,7 +33,7 @@ fun NavGraphBuilder.login() {
 }
 
 fun NavController.navigateToLogin() {
-    navigate(LOGIN_ROUTE)
+    navigate(LoginRoute)
 }
 
 @Preview(showBackground = true)

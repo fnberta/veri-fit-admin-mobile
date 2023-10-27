@@ -21,10 +21,10 @@ internal fun Trainings(uiState: TrainingsUiState) {
     }
 }
 
-const val TRAININGS_ROUTE = "trainings"
+const val TrainingsRoute = "trainings"
 
 fun NavGraphBuilder.trainings() {
-    composable(TRAININGS_ROUTE) {
+    composable(TrainingsRoute) {
         val viewModel = hiltViewModel<TrainingsViewModel>()
         val uiState by viewModel.uiState.collectAsStateWithLifecycle()
         Trainings(uiState)
@@ -32,7 +32,7 @@ fun NavGraphBuilder.trainings() {
 }
 
 fun NavController.navigateToTrainings() {
-    navigate(TRAININGS_ROUTE)
+    navigate(TrainingsRoute)
 }
 
 @Preview(showBackground = true)

@@ -29,10 +29,10 @@ internal fun Clients(uiState: ClientsUiState) {
     }
 }
 
-const val CLIENTS_ROUTE = "clients"
+const val ClientsRoute = "clients"
 
 fun NavGraphBuilder.clients() {
-    composable(CLIENTS_ROUTE) {
+    composable(ClientsRoute) {
         val clientsViewModel = hiltViewModel<ClientsViewModel>()
         val uiState by clientsViewModel.uiState.collectAsStateWithLifecycle()
         Clients(uiState)
@@ -40,7 +40,7 @@ fun NavGraphBuilder.clients() {
 }
 
 fun NavController.navigateToClients() {
-    navigate(CLIENTS_ROUTE)
+    navigate(ClientsRoute)
 }
 
 @Preview(showBackground = true)
